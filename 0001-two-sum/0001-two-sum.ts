@@ -1,8 +1,13 @@
-function twoSum(nums: number[], target: number): number[] {
-    for(let i = 0 ; i < nums.length ; i++){
-        let newTarget = target - nums[i];
-        for(let j = i; j < nums.length ; j++){
-            if(nums[j+1] === newTarget) return [i,j+1]
-        }
+ function twoSum(nums: number[], target: number): number[] {
+    const map = {}
+    for (let index = 0; index < nums.length; index++) {
+      const element = nums[index]
+      const complement = target - element
+      if (map[complement] !== undefined) {
+        return [map[complement], index]
+      } else {
+        map[element] = index
+      }
     }
-};
+    return []
+ }
