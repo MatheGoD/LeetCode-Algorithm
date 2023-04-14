@@ -1,8 +1,8 @@
 function checkPerfectNumber(num: number): boolean {
   const halfNum = Math.trunc(num/2);
-  const divisors = [];
+  let sum = 0;
   for (let i = 1 ; i <= halfNum ; i++){
-    if(num%i === 0) divisors.push(i)
+    if(num % i === 0) sum += i
   }
-  return divisors.reduce((a,b) => a+b,0) === num
+  return sum === num
 };
